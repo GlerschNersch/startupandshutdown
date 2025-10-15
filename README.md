@@ -62,3 +62,9 @@ binary_sensor:
     host: 192.168.68.109
     count: 2
     scan_interval: 10
+
+📝 Replace
+00:11:22:33:44:55 → your PC’s MAC address
+192.168.68.109 → your PC’s LAN IP
+
+Restart Home Assistant after saving.
