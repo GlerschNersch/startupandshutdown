@@ -1,0 +1,64 @@
+views:
+  - title: PC Controls
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: 🖥️ PC Power Controls
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                name: 🛑 Shutdown
+                icon: mdi:power-off
+                tap_action:
+                  action: call-service
+                  service: rest_command.shutdown_pc
+                styles:
+                  card:
+                    - border-radius: 16px
+                    - border: 2px solid rgba(255,0,0,0.6)
+                    - background-color: rgba(255,0,0,0.05)
+                    - height: 100px
+                  icon:
+                    - color: red
+                  name:
+                    - color: white
+
+              - type: custom:button-card
+                name: ⚡ Wake
+                icon: mdi:power
+                tap_action:
+                  action: call-service
+                  service: shell_command.wake_pc
+                styles:
+                  card:
+                    - border-radius: 16px
+                    - border: >
+                        2px solid
+                        {% if is_state('binary_sensor.pc_online', 'on') %}
+                          rgba(0,255,0,0.6)
+                        {% else %}
+                          rgba(255,0,0,0.6)
+                        {% endif %}
+                    - background-color: >
+                        {% if is_state('binary_sensor.pc_online', 'on') %}
+                          rgba(0,255,0,0.1)
+                        {% else %}
+                          rgba(255,0,0,0.05)
+                        {% endif %}
+                    - box-shadow: >
+                        {% if is_state('binary_sensor.pc_online', 'on') %}
+                          0 0 20px rgba(0,255,0,0.5)
+                        {% else %}
+                          none
+                        {% endif %}
+                    - height: 100px
+                  icon:
+                    - color: >
+                        {% if is_state('binary_sensor.pc_online', 'on') %}
+                          lime
+                        {% else %}
+                          red
+                        {% endif %}
+                  name:
+                    - color: white
