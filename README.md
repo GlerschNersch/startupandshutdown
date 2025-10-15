@@ -12,7 +12,7 @@ It uses a **Wake-on-LAN shell command**, **REST endpoints** for power control, a
 ✅ Shut down or restart via REST command  
 ✅ Ping-based online detection  
 ✅ Color-changing buttons (green = online / red = offline)  
-✅ 100 % local — works even on mesh networks like TP-Link Deco  
+✅ 100% local — works even on mesh networks like TP-Link Deco  
 
 ---
 
@@ -43,10 +43,6 @@ It uses a **Wake-on-LAN shell command**, **REST endpoints** for power control, a
 
 ## 🧩 Step 1 – Add to `configuration.yaml`
 
-📝 Replace
-• 00:11:22:33:44:55 → your PC’s MAC address
-• <YOUR_PC_IP> → your PC’s local IP address
-
 ```yaml
 # 1️⃣ Wake-on-LAN shell command
 shell_command:
@@ -66,3 +62,9 @@ binary_sensor:
     host: <YOUR_PC_IP>
     count: 2
     scan_interval: 10
+
+📝 Replace
+• 00:11:22:33:44:55 → your PC’s MAC address
+• <YOUR_PC_IP> → your PC’s local IP address
+
+Restart Home Assistant after saving.
